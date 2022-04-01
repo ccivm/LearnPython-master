@@ -16,7 +16,7 @@ def get_video_ids(author_url):
     n = 0
     flag = True
     chrome_option = webdriver.ChromeOptions()
-    chrome_option.add_argument('headless')  # 静默模式
+    # chrome_option.add_argument('headless')  # 静默模式
     driver = webdriver.Chrome(options=chrome_option)
     driver.get(author_url)
     while flag and retry <= 15:
@@ -97,6 +97,7 @@ def download_video(save_path, url, title):
 def main():
     # 获取UP主全部短视频的ID
     url = input("请输入抖音UP主的主页:")
+    url = "https://www.douyin.com/user/MS4wLjABAAAACZAHN_6G0J7MKinxzX13d9ACbY7g5Cn92CMtjCwb1Bg" ##馨馨睡不醒
     print("\n获取UP主全部短视频的ID...")
     ids = get_video_ids(url)
     print("获取完毕!共获取短视频ID{}个!".format(len(ids)))
